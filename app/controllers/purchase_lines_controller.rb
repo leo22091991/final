@@ -69,6 +69,6 @@ class PurchaseLinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_line_params
-      params.require(:purchase_line).permit(:subtotal, :product_id, :purchase_id, :quantity)
+      params.require(:purchase_line).permit(:subtotal, :product_id, :purchase_id, :quantity, purchase_lines_attributes:[:product_id, :quantity])
     end
 end

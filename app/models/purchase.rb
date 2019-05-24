@@ -1,5 +1,6 @@
 class Purchase < ApplicationRecord
 	has_many :purchase_lines
+	has_many :products, through: :purchase_lines, dependent: :destroy
 
 	before_create :calcular_monto
 	accepts_nested_attributes_for :purchase_lines

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sale_lines
+  resources :sales
   resources :purchase_lines
   resources :purchases
   resources :products

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_045437) do
+ActiveRecord::Schema.define(version: 2019_05_24_055254) do
 
   create_table "categories", force: :cascade do |t|
     t.string "decription"
@@ -41,6 +41,23 @@ ActiveRecord::Schema.define(version: 2019_05_20_045437) do
 
   create_table "purchases", force: :cascade do |t|
     t.float "monto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sale_lines", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "sale_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "subtotal"
+    t.index ["product_id"], name: "index_sale_lines_on_product_id"
+    t.index ["sale_id"], name: "index_sale_lines_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
